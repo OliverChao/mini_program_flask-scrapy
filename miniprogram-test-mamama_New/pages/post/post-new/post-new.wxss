@@ -1,0 +1,83 @@
+/* pages/post/post-new/post-new.wxss */
+page{
+  background-color: whitesmoke;
+}
+.img-chooseimg{
+  width: 120rpx;
+  height: 100rpx;
+  margin-top: 20rpx;
+}
+.img-chooseimg_1{
+  width: 130rpx;
+  height: 130rpx;
+  margin-left: 10rpx;
+}
+.img-chooseing_wrap{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.textarea-wenzhang{
+  width: 100%;
+  margin-top: 50rpx;
+  background-color:white;
+}
+.wrap-textarea{
+  width: 100%;
+}
+
+.fabu-btn{
+  position: absolute;
+  margin-top: 40rpx;
+  right: 30rpx;
+  width: 140rpx;
+  height: 80rpx;
+
+
+}
+.main{
+  margin: 10rpx;
+
+}
+.send-more-box{
+  display:flex;
+  flex-direction: column;
+   align-items: center;
+}
+.send-more{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.more{
+  margin: 10px;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.image-yulan{
+    width:220rpx;
+    height:220rpx;
+    margin: 10rpx;
+    border-radius: 8%;
+}
+.inline{
+  width:50%;
+  /* background-color: chocolate; */
+  margin-left: 10rpx; 
+  margin-right: 10rpx;
+}
+.inline-paixu{
+  width: 100%;
+  display: flex;
+  flex-wrap:wrap;
+  align-items: center;
+  /* background-color: aqua; */
+}
+.icon-yulan{
+    position: relative;
+  }

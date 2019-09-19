@@ -1,0 +1,92 @@
+<!-- detail-- -->
+<view class='main'>
+  <view class="author-date">
+        <image class="avatar" src="{{post.user_info.avatar_url}}"></image>
+        <text class="author">{{post.user_info.nickname}}</text>
+        
+   </view>  
+     <view>
+      <text class="date">{{post.article_info.article_since}}</text>
+    </view>
+       
+
+   <view>
+        <view class='detail-main'>
+          <text class="detail">{{post.article_info.body}}</text>
+        </view>
+
+     <view class='inline-paixu'>
+      <view wx:for="{{post.img_info}}" class='inline'  wx:key="index">
+        <image bindtap='tapImage' data-imgurl="{{item.imgurl}}" class="post-image" src="{{item.imgurl}}" mode="aspectFill" />
+      </view> 
+     </view>
+    </view>
+
+
+<view class="tool">
+  <view class="tool-item"  data-post-id="{{post.postId}}">
+     <image  src="/images/icon/wx_app_liked.png" />
+    <text>{{post.article_info.like_num}}</text>
+
+  </view>
+  
+  <view class="tool-item " bindtap='focal' data-post-id="{{post.article_info.id}}">
+    <image src="/images/icon/wx_app_message.png"></image>
+    <text>{{post.article_info.comment_num}}</text>
+  </view>
+
+</view>
+
+
+</view>
+  <view class="comment-title">评论（共{{post.article_info.comment_num}}条）</view>
+    <view class="comment" >
+      <block wx:for="{{comments}}" wx:key="index">
+        <view>
+          <image class='avatar' src="{{item.user_info.avatar_url}} "> </image>
+           <text class='author'> {{item.user_info.nickname}} </text>
+           <text class='date'>{{item.comment_info.comment_since}}</text>
+         </view>
+           <view>
+            <view>{{item.comment_info.comment}}</view>
+           </view>    
+      </block>
+  </view>
+
+
+<!-- detail -->
+
+
+
+<view class="comment-detail-box">
+  <view class="comment-main-box">
+    <block wx:for="{{comments}}" wx:for-item="item" wx:for-index="idx">
+      <view class="comment-item">
+        <view class="comment-body">
+          <view class="comment-img" wx:if="{{item.content.img.length!=0}}">
+            <block wx:for="{{item.content.img}}" wx:for-item="img" wx:for-index="imgIdx">
+              <image src="{{img}}" mode="aspectFill" catchtap="previewImg" data-comment-idx="{{idx}}" data-img-idx="{{imgIdx}}"></image>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+
+
+
+  <view class="input-box">
+    <view class="send-msg-box">
+      <view  class="input-item">
+        <input class="input keyboard-input"  value="{{keyboardInputValue}}" bindconfirm="submitComment" bindinput="bindCommentInput" auto-focus='{{isFocal}}' placeholder="说点什么吧……" />
+      </view>
+      <!-- <image class="comment-icon add-icon" src="/images/icon/wx_app_add.png" catchtap="sendMoreMsg">
+      </image> -->
+      <image class="submit-btn" catchtap="submitComment" src='/image/fasong.png' > </image>
+    </view>
+
+
+
+  </view>
+</view>

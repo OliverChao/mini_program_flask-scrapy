@@ -1,0 +1,104 @@
+<!--pages/tasklist/tasklist.wxml-->
+
+<!-- 倒计时 -->
+<view wx:if="{{isThis}}"  >
+  <view wx:if="{{!taskslist.length}}" >
+    <image src='https://www.oliverlovesannabelle.club/static/pics_on_mini/beijing-3.png' class='img-back'></image>
+  </view>
+  
+  <view wx:else >
+  <image src='https://www.oliverlovesannabelle.club/static/pics_on_mini/timg.jpg' class='img-back'></image>
+ </view>
+
+<scroll-view class='main-view' animation="{{slide_up1}}" style='height:70%'>
+
+<view   wx:for="{{taskslist}}"  wx:key="">
+  <view id="{{index}}"  bindlongpress='deletetask'  bindtap="start">
+    <view  wx:if='{{item.condition}}' >
+     <button class='btnlist"  size='default'   style='background-color:#{{item.color}}'>
+          <image class='imagebtn' src='{{item.url}}'></image>
+          <text class='hint-name'>{{item.name}}</text>
+          <image class='hint' src='/image/wancheng.png'></image>
+         <text class="btn-hint">{{item.time/60}}min</text>
+
+      </button>
+    </view>
+
+    <view  wx:else  >
+      <button class='btnlist" size='default'  style='background-color:#{{item.color}}'>
+          <image class='imagebtn' src='{{item.url}}'></image>
+          <text class='hint-name'>{{item.name}}</text>
+          <text class="btn-hint">{{item.time/60}}min</text>
+      </button>
+    </view>
+  </view>
+</view>
+
+</scroll-view>
+<view class='tianjia_main'>
+ <image class="tianjia"  bindtap="showDialogBtn"  src='/image/tianjia.png' ></image>
+</view>
+
+
+
+<!-- box -->
+ <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+  
+    <view class="modal-title" style='background-color:#{{confirmcolor}}'>
+     <text >待办事项</text>
+    </view>
+
+    <view class="modal-content">
+      <view class="modal-input">
+        <input placeholder-class="input-holder" type="text" maxlength="10" bindinput="settaskname" class="input" placeholder="请输入待办事项名称"  auto-focus='true'></input>
+      </view>
+      <view class="modal-input">
+        <input placeholder-class="input-holder" type="text" maxlength="30" bindinput="settarget" class="input" placeholder="目标" ></input>
+      </view>
+
+ 
+
+      <view class="modal-input">
+        <input placeholder-class="input-holder" type="number" maxlength="3" bindinput="settasktime" class="input" placeholder="时间：min" ></input>
+      </view>
+
+      <view class="modal-input" bindtap='bindShowMsg'>
+        <text style='margin-left:50rpx;margin-right:50rpx;'>类型:</text>
+        <image style='height:60rpx;width:60rpx;margin-right:50rpx;' src='{{icon}}'></image>
+        <image style='height:40rpx;width:40rpx;' src='/image/xiala.png'></image>
+      </view>
+
+      <!-- xialaxianshi -->
+        <view class="select_box" wx:if="{{select}}">  
+          <view wx:for="{{tubiao}}" wx:key="item">
+            <view class="select_one" bindtap="mySelect" data-name="{{item}}">
+              <image  src='{{item}}'></image>
+            </view>   
+           </view>
+          </view>
+
+
+      <view  class='color-choose-main'>
+        <radio-group class='color-choose'  bindchange='trycolor'>
+            <view wx:for="{{color}}" >
+              <radio class="{{item}}" value='{{item}}'></radio>
+            </view>
+        </radio-group>
+      </view>
+
+    </view>
+
+
+
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="canceltask" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="confirmtask" data-status="confirm">确定</view>
+    </view>
+  </view>
+  </view>
+
+
+
+
+<!-- 正计时 -->

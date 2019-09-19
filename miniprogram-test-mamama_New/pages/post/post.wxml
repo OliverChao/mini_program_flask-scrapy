@@ -1,0 +1,118 @@
+
+
+<view hidden='true' class="" hover-class="none" hover-stop-propagation="false">
+    <button bindtap="testpost">
+          testpost
+    </button>
+
+    <button bindtap='test_get_post'>
+      test_get_post
+    </button> 
+
+    <button bindtap="showData">
+      show Data 
+    </button>
+
+    <button bindtap='test_log'>
+      登入
+    </button>
+
+    <button  open-type="getUserInfo"  >
+      获取信息
+    </button>
+
+    <button bindtap="getUserInfo">
+       console info
+    </button>
+
+    <button bindtap="addnew">
+      click me
+    </button>
+
+  </view>
+
+
+  <!-- <view class='login' wx:if="{{isHidden}}">
+    <button open-type="getUserInfo" bindtap='test_log'>
+      登入
+    </button>
+  </view> -->
+
+<view class='main' >
+ <view class="daohang"  style="background-image:url('http://img4.imgtn.bdimg.com/it/u=1009428747,3033228559&fm=26&gp=0.jpg');background-size:cover" hover-stop-propagation="false">
+  <image  class='imageaddpost' bindtap='fadongtai'  src='/images/icon/wx_app_add.png'></image><text style='margin-top:10px; font-size:40rpx;'>番茄卡</text>
+</view>
+
+<view>
+
+<!-- 轮播 -->
+ <!-- <swiper class='swiper' catchtap="onSwiperTap" vertical="{{false}}"  indicator-dots="true" autoplay="true" interval="5000" circular="true">
+    <swiper-item>
+      <image  src="/images/post/post-1@text.jpg" data-post-id='3' />
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/post/post-2@text.jpg" data-post-id='4' />
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/post/post-3@text.jpg" data-post-id='5' />
+    </swiper-item>
+  </swiper>  -->
+  
+
+
+
+  <block wx:for="{{posts}}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+    <view catchtap='onTapToDetail' data-post-id="{{item.article_info.id}}">
+  <!--------------------------------------- model --------------------------------------->
+ <view class="post-container" animation="{{slide_up1}}">
+
+    <view class="top">
+      <view class="post-author-date" bindtap='onTapToDetail'>
+        <image  src="{{item.user_info.avatar_url}}" ></image>
+        <text class='nickname' >{{item.user_info.nickname}}</text>
+        <image class='sex' wx:if="{{item.user_info.gender}}" src="../../image/boy.png"></image>
+        <image class='sex' wx:else="{{}}" src='../../image/girl.png'></image>
+      </view>
+
+      <view class='time'>
+         <text >{{item.article_info.article_since}}</text>
+       </view>
+    
+     </view>
+
+
+        <view style='margin-top:10rpx;' >
+          <text  class="post-content-hide"  >{{item.article_info.body}} </text>
+        </view>
+<!-- 
+     <view >
+      <text class="post-content">{{item.article_info.body}} </text>
+   
+    </view> -->
+    <view class='inline-paixu'>
+        <view wx:for="{{item.img_info}}" class='inline'  wx:key="index">
+      <image  class="post-image" src="{{item.imgurl}}" mode="aspectFill" />
+      </view>
+    </view>
+     
+      <view class="post-like">
+  
+        <image wx:if="{{islike[item.article_info.id]}}"  catchtap="onUpTap" data-postid="{{item.article_info.id}}" src="/images/icon/wx_app_liked.png" ></image>
+        <image wx:else="{{islike[item.article_info.id]}}"  catchtap="onUpTap" data-postid="{{item.article_info.id}}" src="/images/icon/wx_app_like.png" ></image>
+        <text>{{item.article_info.like_num}}</text>
+
+
+        <image  src="/images/icon/wx_app_view.png"/>
+
+        <text>{{item.article_info.reading_num}}</text>
+
+        <image  catchtap='comment' data-post-id="{{item.article_info.id}}" src="/images/icon/wx_app_message.png"></image>
+        <text>{{item.article_info.comment_num}}</text>
+      </view>
+    </view>
+<!-- model ------------------------------>
+    </view>
+  </block>
+
+</view>
+</view>

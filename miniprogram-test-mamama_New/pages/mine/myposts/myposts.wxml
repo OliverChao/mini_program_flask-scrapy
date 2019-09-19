@@ -1,0 +1,70 @@
+
+<view class='main' >
+<view>
+
+    <!-- <view class="nu" wx:for="{{todolist}}" wx:key="{{index}}" bindcap="">{{item}}</view> -->
+
+    <!-- <button bindtap="adda">
+      add 
+    </button> -->
+
+
+
+
+  <block wx:for="{{posts}}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+    <view catchtap='onTapToDetail' data-post-id="{{item.article_info.id}}">
+  <!-- model --------------------------------------->
+ <view class="post-container">
+
+    <view class="top">
+      <view class="post-author-date" bindtap='onTapToDetail'>
+        <image  src="{{item.user_info.avatar_url}}" ></image>
+        <text class='nickname' >{{item.user_info.nickname}}</text>
+        <image class='sex' wx:if="{{item.user_info.gender}}" src="/image/boy.png"></image>
+        <image class='sex' wx:else="{{}}" src='../../image/girl.png'></image>
+
+         <image style='height:30px;width:30px; margin-left:150rpx;' src='/image/shanchu.png' catchtap="delete_post" data-post-id="{{item.article_info.id}}"> delete </image>
+      </view>
+     </view>
+
+
+      <view>
+       
+         <text class='shijian'>{{item.article_info.article_since}}</text>
+       </view>
+    
+        <view style='margin-top:10px;' >
+          <text  class="post-content-hide"  >{{item.article_info.body}} </text>
+        </view>
+<!-- 
+     <view >
+      <text class="post-content">{{item.article_info.body}} </text>
+   
+    </view> -->
+    <view class='inline-paixu'>
+        <view wx:for="{{item.img_info}}" class='inline'  wx:key="index">
+      <image catchtap="tapImage" data-imgurl="{{item.imgurl}}" class="post-image" src="{{item.imgurl}}" mode="aspectFill" />
+      </view>
+    </view>
+     
+      <view class="post-like">
+  
+        <image wx:if="{{islike[item.article_info.id]}}"  catchtap="onUpTap" data-postid="{{item.article_info.id}}" src="/images/icon/wx_app_liked.png" ></image>
+        <image wx:else="{{islike[item.article_info.id]}}"  catchtap="onUpTap" data-postid="{{item.article_info.id}}" src="/images/icon/wx_app_like.png" ></image>
+        <text>{{item.article_info.like_num}}</text>
+
+
+        <image  src="/images/icon/wx_app_view.png"/>
+
+        <text>{{item.article_info.reading_num}}</text>
+
+        <image  catchtap='comment' data-post-id="{{item.article_info.id}}" src="/images/icon/wx_app_message.png"></image>
+        <text>{{item.article_info.comment_num}}</text>
+      </view>
+    </view>
+<!-- model ------------------------------>
+    </view>
+  </block>
+
+</view>
+</view>

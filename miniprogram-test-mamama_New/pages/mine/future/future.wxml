@@ -1,0 +1,80 @@
+<view>
+
+<view class='wrap'>
+    <view>
+        <view class='date-show'>
+            <view class='lt-arrow' bindtap='lastMonth'>
+                <image src='/image/houtui.png' mode='aspectFit'></image>
+            </view>
+            {{year}}年{{month}}月
+            <view class='rt-arrow' bindtap='nextMonth'>
+                <image src='/image/qianjin.png' mode='aspectFit'></image>
+            </view>
+        </view>
+    </view>
+    <view class='header'>
+        <view wx:for='{{date}}' wx:key="" class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}<view></view></view>
+    </view>
+    <view class='date-box'>
+        <view wx:for='{{dateArr}}' wx:key="" class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>   
+        <!-- 可以加bindtap添加事件 -->
+          <view class='date-head' bindtap='loadday' id="{{item.isToday}}"style='{{item.style}}' >
+                <view>{{item.dateNum}}</view>
+          </view>
+        </view>
+    </view>
+</view>
+
+<view  class='list_1'>
+  <view class='addplan' bindtap='showDialogBtn'>
+      <image style='height:30px;width:30px;' src='/image/tianjia.png'></image>
+      <view style='margin-left:20rpx;'>添加计划</view>
+  </view>
+</view>
+
+<scroll-view class='list' >
+
+  <view class='image-list' wx:for="{{list}}" wx:if='{{item.isToday==id}}' wx:key="" >
+  
+         <view id='{{index}}' bindlongpress='deleteevent'>
+            <text>计划:{{item.taskname}}</text>
+        </view>
+
+        <view id='{{index}}' bindlongpress='deleteevent'>
+            <text>地点:{{item.taskadress}}</text>
+        </view>
+  </view>
+<!-- 添加滚动条 -->
+</scroll-view>
+
+</view>
+
+
+
+
+
+<!-- box -->
+ <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+  
+    <view class="modal-title" style='background-color:#{{confirmcolor}}'>
+     <text >新建计划</text>
+    </view>
+
+    <view class="modal-content">
+
+      <view class="modal-input">
+        <input  placeholder-class="input-holder" type="text" maxlength="10" bindinput="taskname" class="input" placeholder="计划"  auto-focus='true'></input>
+      </view>
+      <view class="modal-input">
+        <input placeholder-class="input-holder" type="text" maxlength="30" bindinput="taskadress" class="input" placeholder="地点" ></input>
+      </view>
+
+
+
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="canceltask" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="addevent" data-status="confirm">确定</view>
+    </view>
+  </view>
+  </view>

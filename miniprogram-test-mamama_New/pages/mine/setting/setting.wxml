@@ -1,0 +1,35 @@
+<!--pages/mine/setting/setting.wxml-->
+ <view class='item' bindtap='clearstorage'>
+      <view class='name'>清除缓存</view>
+  </view>
+
+
+  <view class='line'></view>
+
+  <view class='item' bindtap='loadingcloud'>
+      <view class='name'>加载备份</view>
+  </view>
+  <view class='line'></view>
+
+  <view class='item' bindtap='onus'>
+      <view class='name'>关于我们</view>
+  </view>
+
+    <view class='line'></view>
+
+ 
+  
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+  
+    <view class="modal-title" style='background-color:{{confirmcolor}}'>关于我们</view>
+    <view class="modal-content">
+	<view >
+		<text></text>	
+	</view>
+
+    <view class="modal-footer">
+      我们是来自青岛大学
+    </view>
+  </view>
+  </view>

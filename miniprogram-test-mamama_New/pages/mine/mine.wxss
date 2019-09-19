@@ -1,0 +1,126 @@
+/* pages/mine/mine.wxss */
+/**index.wxss**/
+
+page{
+  background-color: white;
+}
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items:left;
+}
+
+.know{
+  font-size: 30rpx;
+  color: black;
+
+}
+.main1{
+display:flex;
+flex-direction: column;
+margin-top:400px;
+}
+
+.userinfo-avatar {
+  margin-left: 50rpx;
+  width: 128rpx;
+  height: 128rpx;
+  margin-top: 90rpx;
+}
+
+
+.hint_login{
+  font-size: 30rpx;
+ text-align: center;
+}
+
+
+.userinfo-nickname {
+  color: black;
+  text-align:left;
+  margin-left: 30rpx;
+  margin-top: 100rpx;
+}
+.userinfo_local{
+  position: absolute;
+  top: 180rpx;
+  left: 200rpx;
+}
+.local{
+  color: black;
+  font-size: 34rpx;
+  margin-left: 10rpx;
+}
+
+.content{
+  background: #e4e7eb;
+  height:500rpx;
+  margin-top: 5rpx;
+}
+
+.bg{
+width: 100%;
+height: 300rpx;
+}
+
+.headicon{
+  margin: 10rpx;
+  height: 300rpx;
+}
+
+.item{
+  widows: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+}
+
+.hr{
+  height: 5px;
+  background-color: #cccccc;
+}
+
+.name{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 30rpx;
+  padding-left: 30rpx;
+  padding-bottom: 30rpx;
+  text-align: center;
+}
+.name image{
+  position:relative; 
+  width:60rpx;
+  height: 60rpx;
+  bottom: 5rpx;
+  margin-right: 10rpx;
+}
+.name text{
+ font-size: 30rpx;
+}
+
+
+.line{
+  height: 2px;
+  background-color: #cccccc;
+}
+
+.hr-1{
+  margin-block-start: 5px;
+  background-color: #888888;  
+  }
+.hint_jin{
+ width: 80rpx;
+ height: 80rpx;
+position: relative;
+top: 20rpx;
+right: 0rpx;
+}
+  /* 111111111111 */
+
+
+
+
+  

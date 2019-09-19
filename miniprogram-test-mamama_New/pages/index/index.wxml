@@ -1,0 +1,71 @@
+<!--index.wxml-->
+<view class='bg'>
+
+
+  <view class='daohang_left' bindtap="giveUp">
+   <image style='height:80rpx;width:80rpx;' bindtap="canceltask" src='/image/fangqi.png'  >放弃</image>
+  </view>
+
+
+
+  <view class='text'>
+    <text class='text-detail'>{{target}}</text>
+  </view>
+
+
+
+  <view  wx:if="{{!showModal}}"  class="timer-main">
+    <view  class="timer" >
+     <canvas   canvas-id="round"  style='height: 100%;width: 100%' ></canvas>
+    </view>
+  </view>
+
+    <view  wx:else  class="timer-main">
+    
+     <text style='color:red;'>继续计时请按开始键</text>
+   
+  </view>
+
+
+
+
+
+<view class='control'>
+
+  <view class="buttons" >
+    <image class='imagecontrol_1' wx:if="{{isplaying}}"  bindtap='pausemusic'            src="/image/shengyin.png"></image>
+    <image class='imagecontrol_1' wx:else="{{isplaying}}"  bindtap='playmusic' src="/image/shengyinguanbi.png"></image>
+  </view>
+
+  <view class="buttons" >
+    <image class='imagecontrol' wx:if="{{isRunning}}" bindtap='pause' src='/image/zanting.png'></image>
+    <image class='imagecontrol'  wx:else="{{isRunning}}" bindtap='continue' src='/image/kaishi.png'></image>
+  </view>
+
+ <view class='buttons' catchtap="shareatricle" >
+    <image class='imagecontrol' src='/image/share.png' >分享</image>
+  </view>
+
+</view>
+    <!-- <button wx:if="{{isRunning}}" bindtap="pause" >暂停计时</button>
+    <button wx:else  bindtap="continue">继续计时</button>
+    <button bindtap="giveUp">放弃</button> -->
+
+</view>
+
+
+
+  <!-- box -->
+ <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+
+
+    <view class="modal-title" style='background-color:{{confirmcolor}}'>温馨提示 </view>
+    <view class="modal-content">
+    <text>任务完成一定要分享哦！</text>
+  </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="canceltask" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="confirmtask" data-status="confirm">确定</view>
+    </view>
+  </view>

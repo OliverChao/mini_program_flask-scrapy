@@ -1,0 +1,62 @@
+
+<view class="main" >
+<!-- 修改中↓-->
+  <view class='wrap-textarea' wx:if="{{flag}}" >
+      <textarea   class="textarea-wenzhang"  value="{{sharetarget}}" type="text" placeholder-class="input-placeholder" 
+        bindinput="bindDetail" bindfocus="" bindblur="" bindconfirm="" >
+      </textarea>
+  </view>
+
+    <view wx:else >
+      <textarea class="textarea-wenzhang" auto-focus='autofocus' value="{{post_info.article_info.body}}"   placeholder='#今天是个好心情呢#' type="text" placeholder-class="input-placeholder" 
+        bindinput="bindDetail" bindfocus="" bindblur="" bindconfirm="" >
+      </textarea>
+  </view>
+  <!-- 修改中↑ -->
+
+ 
+
+          <!--显示选择的图片-->
+      <!--显示选择的图片-->
+      <view  class='inline-paixu' hidden="{{chooseFiles.length==0}}">
+        <block  class="inline" wx:for="{{chooseFiles}}" wx:key="item" wx:for-index="idx">
+          <!--如果删除其中一个，则对其添加deleting 样式；-->
+          <view class=" {{deleteIndex==idx?'deleting':''}}">
+          
+              <image  class='image-yulan' src="{{item}}" mode="aspectFill"></image>
+              <icon  class='icon-yulan' type="cancel" size="23" color="#B2B2B2" catchtap="deleteImage" data-idx="{{idx}}" />
+              
+            </view>
+        </block>
+      </view>  
+    
+
+
+    <view  class='img-chooseing_wrap' >
+      <image  class='img-chooseimg' bindtap="chooseImage"  src='/images/icon/wx_app_upload_image.png'  data-category="album">choose img</image>
+   
+      <image bindtap="psot_all"  class="fabu-btn"  src='/image/fabu.png'></image>
+
+    </view>
+       
+    
+
+   
+
+
+
+    <view hidden='true'>
+      <button bindtap="psot_all">发布 (同步 test)</button>
+      <button bindtap="postart">发布文字</button>
+      <button bindtap="sendimgs">发布图片</button>
+      <button bindtap="uploadimgs_02">发布图片  02 !</button>
+      <button bindtap="testdata_function"> test_data_function </button>
+      <button bindtap="showimgsdata">showdata</button>
+  <!-- <image class="" src="{{postImg}}" mode="aspectFit" wx:if="{{postImg}}"/> -->
+    </view>
+
+
+
+
+
+</view>

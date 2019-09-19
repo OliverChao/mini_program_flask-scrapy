@@ -1,0 +1,30 @@
+
+<!--pages/mine/finish/finish.wxml-->
+<view>
+
+ <view wx:if="{{isReal}}" >
+  <image src='https://www.oliverlovesannabelle.club/static/pics_on_mini/bg.png' class='img-back'></image>
+ </view>
+
+<scroll-view style='height:70%'>
+      <view class='list'>
+        <view class='book' wx:for='{{taskslist}}' wx:key="" > 
+          <view class='pic'>
+            <image class='img-finished' src='{{item.url}}' mode='aspectFit' ></image>
+          </view>
+
+
+          <view class='movie-info'>
+            <view class='base-info'>
+              <view class='name'>任务名称：{{item.name}}</view>
+              <view class='desc'>目标：{{item.target}}</view>
+              <view class='desc'>任务时间：{{item.moment}}</view>
+            </view>
+
+
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+</view>

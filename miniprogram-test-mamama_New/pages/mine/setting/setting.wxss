@@ -1,0 +1,124 @@
+/* pages/mine/setting/setting.wxss */
+/* pages/mine/mine.wxss */
+/**index.wxss**/
+
+page{
+  background-color:white;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items:left;
+}
+
+.know{
+  font-size: 30rpx;
+  color: #cccccc;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: rgb(253, 251, 251);
+  text-align: left;
+}
+
+.content{
+  background: #e4e7eb;
+  height:500rpx
+}
+
+.bg{
+width: 100%;
+height: 300rpx;
+}
+
+.headicon{
+  margin: 10rpx;
+}
+
+.item{
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+}
+
+.hr{
+  width: 100%;
+  height: 13px;
+  color: #979696;
+}
+
+.name{
+  padding-top: 30rpx;
+  padding-left: 30rpx;
+  padding-bottom: 30rpx;
+  font-size: 30rpx;
+}
+
+.detail{
+  font-size: 30rpx;
+  position: absolute;
+  right: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #888888;
+}
+
+.line{
+  border: 1px solid #cccccc;
+  opacity: 0.2;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: rgb(197, 86, 86);
+}
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 9999;
+  background: #fff;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+.modal-title {
+  padding-top: 50rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+}
+.modal-content {
+  padding: 50rpx 32rpx;
+}
+
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+.modal-footer {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
